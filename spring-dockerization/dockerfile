@@ -1,0 +1,11 @@
+FROM java:8-jdk-alpine
+
+COPY ./target/spring-dockerization-2.3.3.RELEASE.jar /usr/app/
+
+WORKDIR /usr/app
+
+RUN sh -c 'touch spring-dockerization-2.3.3.RELEASE.jar'
+
+ARG JAR_FILE=target/spring-dockerization-2.3.3.RELEASE.jar
+
+ENTRYPOINT ["java","-jar","spring-dockerization-2.3.3.RELEASE.jar"]
